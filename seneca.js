@@ -1,11 +1,8 @@
 /**
  * Checks if email is valid
  */
-exports.isValidEmail = function (email) {
-  if (email.includes('@myseneca.ca')){
-    return true;
-  }
-  return false;
+exports.isValidEmail = function isValidEmail(email) {
+  return /@myseneca.ca$/.test(email);
 };
 
 /**
