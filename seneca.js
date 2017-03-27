@@ -4,7 +4,11 @@
  */
 exports.isValidEmail = function isValidEmail(email) {
   // TODO: needs to be implemented fully
-  return /@myseneca.ca$/.test(email);
+  if(typeof email !== 'string'){
+  	return false;
+  }
+  const emailValidation = /^[^ ]*@myseneca.ca$|senecac.on.ca$|senecacollege.ca$/;
+  return emailValidation.test(email);
 };
 
 /**
@@ -13,5 +17,10 @@ exports.isValidEmail = function isValidEmail(email) {
  */
 exports.formatSenecaEmail = function formatSenecaEmail(name) {
   // TODO: needs to be implemented fully
-  return `${name}@myseneca.ca`;
+  if(name === null){
+  	throw new Error('Name cannot be null');
+  }else if(!(/^\w+$/.test(name))){
+  	throw new Error('Name cannot have whitespace');
+  }
+  return name.concat('@myseneca.ca');
 };

@@ -54,13 +54,15 @@ describe('seneca.formatSenecaEmail()', function() {
   });
 
   test('return false if name contains wierd characters', function() {
-    var name = "ms$@%haw";
-    expect(seneca.formatSenecaEmail(name)).toBe('false');
+    expect(() => {
+        seneca.formatSenecaEmail(" mshaw");
+    }).toThrow();
   });
 
   test('returns false if name is null', function() {
-    var name = null;
-    expect(seneca.formatSenecaEmail(name)).toBe('false');
+    expect(() => {
+        seneca.formatSenecaEmail(null);
+    }).toThrow();
   });
 
 });
