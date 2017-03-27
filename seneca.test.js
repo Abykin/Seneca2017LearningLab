@@ -26,9 +26,9 @@ describe('seneca.isValidEmail()', function() {
   	expect(seneca.isValidEmail(nullChar)).toBe(false);
   });
 
-  test('returns true for leading white space string argument', function(){
-  	var leadingWhiteSpaces = '  someone@gmail.com';
-  	expect(seneca.isValidEmail(leadingWhiteSpaces)).toBe(true);
+  test('returns false for leading white space string argument', function(){
+  	var leadingWhiteSpaces = ' someone@gmail.com';
+  	expect(seneca.isValidEmail(leadingWhiteSpaces)).toBe(false);
   });
 
   test('returns true for proffesor style email address', function(){
